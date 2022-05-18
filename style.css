@@ -1,0 +1,95 @@
+body{
+    height: 100%;
+    background-color: #eeebd3;
+    color: #A98743;
+    
+}
+
+.header{
+    text-align: center;
+    margin: 50px;
+}
+
+.container{
+    
+    display: flex;
+    justify-content: center;
+}
+
+.sketchboard{
+    background-color: #437C90;
+    margin: 50px;
+    padding: 20px;
+    border-radius: 20px;
+    flex-basis: 700px;
+    flex-shrink: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content : center;
+    align-items : center;
+}
+
+.sketchinput{
+    width: 600px;
+    height: 600px;
+    background-color: #d3d3d3;
+    margin-top: 40px;
+
+}
+
+.sketchcontrols{
+    flex-direction: row;
+    display: flex;
+    justify-content :space-evenly;
+    height: 100px;
+}
+
+.resolutioncontrol{
+    height: 30px;
+    margin: 50px;
+    margin-right: 150px;
+}
+
+.penmodecontrol{
+    height: 30px;
+    margin: 50px;
+    margin-left: 150px;
+}
+
+.slidecontainer {
+    width: 180px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 20px;
+    background: white;
+    outline: none;
+    opacity: 1;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+  }
+  
+  .slider:hover {
+    opacity: 0.8;
+  }
+  
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 40px;
+    height: 40px;
+    border-radius:20px;
+    background: #F7C548;
+    cursor: pointer;
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #F7C548;
+    cursor: pointer;
+  }
