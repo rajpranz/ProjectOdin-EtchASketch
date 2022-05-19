@@ -8,7 +8,8 @@
     -webkit-transition: .2s;
     transition: opacity .2s;
     margin: 0 12px 0 12px;
-    
+    border-radius: 3px;
+    box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, 0.5);
   }
   
   .slider:hover {
@@ -24,6 +25,7 @@
     background: #F7C548;
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    
   }
   
   .slider::-moz-range-thumb {
@@ -42,6 +44,7 @@
     height: 20px;
     margin-left: 20px;
     margin-right: 30px;
+    border-radius: 4px;
 
   }
 
@@ -66,6 +69,8 @@
     background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
+    border-radius: 3px;
+    box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, 0.5);
   }
   
   .switch2:before {
@@ -79,6 +84,7 @@
     -webkit-transition: .4s;
     transition: .4s;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    
   }
   
   input:checked + .switch2 {

@@ -38,6 +38,20 @@ body{
     background-color: #d3d3d3;
     margin-top: 10px;
     box-shadow: inset 0px 5px 5px 0px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+
+.block{
+    
+    width: 49px;
+    height: 49px;
+    opacity: 0.7;
+    border-right: 1px solid gray;
+    border-bottom: 1px solid gray;
+    
 }
 
 .sketchcontrols{
@@ -66,4 +80,3 @@ body{
     align-items: center;
   }
   
-
