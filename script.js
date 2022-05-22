@@ -1,3 +1,13 @@
+//Initialise board
+var resolution = document.getElementById("blockResolution");
+var mode = document.getElementById("modeSwitch");
+
+
+    var target = document.querySelector(".sketchinput");
+    target.innerHTML="<div></div>";
+    target.appendChild(generateInputBlocks(resolution.value));
+    console.log(resolution.value);
+
 
 
 function generateInputBlocks(dimension) {
