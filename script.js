@@ -1,4 +1,4 @@
-var target = document.querySelector(".sketchinput");
+
 
 function generateInputBlocks(dimension) {
     
@@ -11,7 +11,7 @@ function generateInputBlocks(dimension) {
         var newDiv = document.createElement('div');
         newDiv.id = 'r'+i;
         newDiv.className = 'block';
-        newDiv.style = `background-color:red; width:${boxSize}px; height:${boxSize}px;`;
+        newDiv.style = `width:${boxSize}px; height:${boxSize}px;`;
         fragment.appendChild(newDiv);
     }
     
@@ -19,9 +19,14 @@ function generateInputBlocks(dimension) {
     return fragment;
 }
 
-target.appendChild(generateInputBlocks(6));
 
-
+var resolution = document.getElementById("blockResolution");
+resolution.oninput = function(){
+    var target = document.querySelector(".sketchinput");
+    target.innerHTML="<div></div>";
+    target.appendChild(generateInputBlocks(this.value));
+    console.log(this.value)
+}
 
 
 
