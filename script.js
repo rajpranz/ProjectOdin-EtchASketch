@@ -20,14 +20,17 @@ var mode = document.getElementById("modeSwitch");
         //console.log(e.target.style.backgroundColor);
         var style = getComputedStyle(block);
         var color = style.backgroundColor;
-        const parts = color.match(/[\d.]+/g);
+        const colorParts = color.match(/[\d.]+/g);
     
         // If alpha is not there, add it:
-        if (parts.length === 3) {
-            parts.push(1);
+        if (colorParts.length === 3) {
+            colorParts.push(1);
         }
 
-        console.log("transperancy = " + parts[3]);
+        console.log("transperancy = " + colorParts[3]);
+        //block.style.setProperty("backgroundColor", `rgba(20, 20, 40, ${(colorParts[3]+0.1)})`);
+        block.style.backgroundColor = `rgba(20, 20, 40, ${(parseFloat(colorParts[3])+0.1)})`;
+        console.log("currentColor = " + color);
     }
 
 
