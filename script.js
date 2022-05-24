@@ -1,37 +1,39 @@
 //Initialise board
 var resolution = document.getElementById("blockResolution");
+var target = document.querySelector(".sketchinput");
+target.appendChild(generateInputBlocks(resolution.value));
+
+
+let eraseMode = false;
 var mode = document.getElementById("modeSwitch");
+mode.onchange = updateDrawMode;
 
-    var target = document.querySelector(".sketchinput");
-    target.innerHTML="<div></div>";
-    target.appendChild(generateInputBlocks(resolution.value));
-    console.log(resolution.value);
 
-    //var inputBlock = document.querySelectorAll(".block");
-    //inputBlock.forEach(addEventListeners);
+function updateDrawMode(){
+    eraseMode = !eraseMode;
+    console.log(`erasemode is ${eraseMode}`);
+}
 
-    function addEventListeners(block){
-        block.addEventListener('click', updateColor);
-        //block.addEventListener('mouseenter', updateColor);
-    }
 
-    function updateColor(block){
-        console.log('clicked');
-        //console.log(e.target.style.backgroundColor);
-        var style = getComputedStyle(block);
-        var color = style.backgroundColor;
-        const colorParts = color.match(/[\d.]+/g);
+function updateColor(block){
+    var style = getComputedStyle(block);
+    var color = style.backgroundColor;
+    const colorParts = color.match(/[\d.]+/g);
     
-        // If alpha is not there, add it:
-        if (colorParts.length === 3) {
-            colorParts.push(1);
-        }
-
-        console.log("transperancy = " + colorParts[3]);
-        //block.style.setProperty("backgroundColor", `rgba(20, 20, 40, ${(colorParts[3]+0.1)})`);
-        block.style.backgroundColor = `rgba(20, 20, 40, ${(parseFloat(colorParts[3])+0.1)})`;
-        console.log("currentColor = " + color);
+    // If alpha is not there, add it:
+    if (colorParts.length === 3) {
+        colorParts.push(0);
     }
+
+    if(eraseMode){
+        block.style.backgroundColor = `rgba(20, 20, 40, ${(parseFloat(colorParts[3])-0.1)})`;
+    }else{
+        if (colorParts[3]<0.9) {
+            block.style.backgroundColor = `rgba(20, 20, 40, ${(parseFloat(colorParts[3])+0.1)})`;   
+        }
+    }
+
+}
 
 
 function generateInputBlocks(dimension) {
@@ -48,10 +50,7 @@ function generateInputBlocks(dimension) {
         newDiv.style = `width:${boxSize}px; height:${boxSize}px;`;
         newDiv.setAttribute('onmouseenter', 'updateColor(this)');
         newDiv.setAttribute('onclick', 'updateColor(this)');
-        newDiv.addEventListener('click', function onClick(event){
-           // console.log(event.target.style.backgroundColor);
-        });
-        
+                
         fragment.appendChild(newDiv);
     }
     
